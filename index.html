@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dành Riêng Cho Em ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff9a9e,
+        #fad0c4,
+        #ffd1ff
+    );
+}
+
+.card{
+    width:90%;
+    max-width:850px;
+    min-height:650px;
+
+    padding:40px;
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,.2);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.4);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.15);
+
+    position:relative;
+
+    overflow:hidden;
+
+    text-align:center;
+}
+
+.page{
+    display:none;
+    animation:fade .8s;
+}
+
+.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.photo{
+    width:260px;
+    height:260px;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    border:5px solid white;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.15);
+
+    transition:.4s;
+}
+
+.photo:hover{
+    transform:scale(1.05);
+}
+
+h1{
+    margin:20px 0;
+    color:#ff4d6d;
+    font-size:42px;
+}
+
+p{
+    font-size:20px;
+    color:#444;
+    line-height:1.8;
+}
+
+button{
+    margin-top:25px;
+
+    padding:14px 35px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff4d6d,
+        #ff758f
+    );
+
+    color:white;
+
+    font-size:18px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:
+    0 8px 25px rgba(255,77,109,.4);
+}
+
+button:hover{
+    transform:
+    translateY(-3px)
+    scale(1.05);
+}
+
+.no-btn{
+    background:#666;
+    position:absolute;
+    margin-left: 10px;
+}
+
+select,input{
+    width:260px;
+
+    padding:14px;
+
+    border-radius:15px;
+
+    border:none;
+
+    margin:10px;
+
+    font-size:16px;
+}
+
+.success-card{
+    max-width:650px;
+    margin: 40px;
+
+    background:rgba(255,255,255,.85);
+
+    border-radius:25px;
+
+    padding:35px;
+}
+
+.success-title{
+    color:#ff4d6d;
+    margin-bottom:20px;
+}
+
+.result-item{
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:15px;
+
+    margin:12px 0;
+
+    background:#fff;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.05);
+}
+
+.result-item span:last-child{
+    color:#ff4d6d;
+    font-weight:bold;
+}
+
+.love-text{
+    margin-top:25px;
+    font-size:22px;
+    color:#555;
+}
+
+.heart{
+    position:absolute;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+
+.firework{
+    position:fixed;
+    font-size:40px;
+    animation:boom 1.5s forwards;
+}
+
+@keyframes boom{
+    from{
+        transform:scale(0);
+        opacity:1;
+    }
+    to{
+        transform:scale(3);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="card">
+
+    <!-- PAGE 1 -->
+    <div class="page active" id="page1">
+
+        <img src="images/anh_1.jpg" class="photo">
+
+        <h1>🌸 Gửi Em</h1>
+
+        <p>
+            Có một người đã xuất hiện...
+            <br>
+            Và khiến những ngày bình thường
+            của anh trở nên đặc biệt hơn.
+        </p>
+
+        <button onclick="next(2)">
+            Tiếp ➜
+        </button>
+
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page" id="page2">
+
+        <img src="images/anh_4.jpg" class="photo">
+
+        <h1>✨ Em Biết Không?</h1>
+
+        <p>
+            Anh bắt đầu mong chờ những tin nhắn,
+            những cuộc trò chuyện,
+            và cả những lần được gặp em.
+        </p>
+
+        <button onclick="next(3)">
+            Tiếp ➜
+        </button>
+
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page" id="page3">
+
+        <img src="images/anh_2.jpg" class="photo">
+
+        <h1>❤️ Điều Anh Muốn Nói</h1>
+
+        <p>
+            Em đã trở thành một phần rất đặc biệt
+            trong trái tim anh.
+            <br><br>
+            Em có đồng ý làm người yêu anh không?
+        </p>
+
+        <button onclick="acceptLove()">
+            Đồng Ý ❤️
+        </button>
+
+        <button
+            class="no-btn"
+            id="noBtn">
+            Không 😝
+        </button>
+
+    </div>
+
+    <!-- PAGE 4 -->
+    <div class="page" id="page4">
+
+        <!-- <h1>Buổi Hẹn khi E</h1> -->
+
+        <p>
+            Vậy cho anh mời em một bữa nhé 💕
+        </p>
+
+        <br>
+
+        <select id="food">
+            <option>🍕 Pizza</option>
+            <option>🍣 Sushi</option>
+            <option>🥩 Steak</option>
+            <option>🍲 Lẩu</option>
+            <option>🍗 Gà Rán</option>
+        </select>
+
+        <br>
+
+        <select id="drink">
+            <option>🧋 Trà Sữa</option>
+            <option>☕ Cafe</option>
+            <option>🍵 Matcha</option>
+            <option>🍊 Nước Cam</option>
+        </select>
+
+        <br>
+
+        <input type="date" id="date">
+
+        <br>
+
+        <button onclick="confirmDate()">
+            Xác Nhận 💖
+        </button>
+
+    </div>
+
+    <!-- PAGE 5 -->
+    <div class="page" id="page5">
+
+        <div class="success-card">
+
+            <h1 class="success-title">
+                🎉 Hẹn Hò Thành Công 🎉
+            </h1>
+
+            <div class="result-item">
+                <span>🍽️ Món ăn</span>
+                <span id="foodResult"></span>
+            </div>
+
+            <div class="result-item">
+                <span>🥤 Đồ uống</span>
+                <span id="drinkResult"></span>
+            </div>
+
+            <div class="result-item">
+                <span>📅 Ngày hẹn</span>
+                <span id="dateResult"></span>
+            </div>
+
+            <div class="love-text">
+                💖 Anh sẽ chuẩn bị thật chu đáo
+                cho buổi hẹn đầu tiên của chúng ta 💖
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function next(page){
+
+    document
+        .querySelector(".active")
+        .classList
+        .remove("active");
+
+    document
+        .getElementById("page"+page)
+        .classList
+        .add("active");
+}
+
+function acceptLove(){
+    next(4);
+}
+
+const noBtn =
+document.getElementById("noBtn");
+
+noBtn.addEventListener(
+"mouseover",
+()=>{
+
+    const x=
+    Math.random()*500;
+
+    const y=
+    Math.random()*250;
+
+    noBtn.style.left=x+"px";
+    noBtn.style.top=y+"px";
+});
+
+function confirmDate(){
+
+    const food=
+    document.getElementById("food").value;
+
+    const drink=
+    document.getElementById("drink").value;
+
+    const date=
+    document.getElementById("date").value;
+
+    document.getElementById(
+    "foodResult").innerText=food;
+
+    document.getElementById(
+    "drinkResult").innerText=drink;
+
+    document.getElementById(
+    "dateResult").innerText=date;
+
+    next(5);
+
+    fireworks();
+}
+
+function fireworks(){
+
+    for(let i=0;i<40;i++){
+
+        let fw=
+        document.createElement("div");
+
+        fw.className="firework";
+
+        fw.innerHTML="🎆";
+
+        fw.style.left=
+        Math.random()*window.innerWidth+"px";
+
+        fw.style.top=
+        Math.random()*window.innerHeight+"px";
+
+        document.body.appendChild(fw);
+
+        setTimeout(()=>{
+            fw.remove();
+        },1500);
+    }
+}
+
+function createHeart(){
+
+    const hearts=[
+    "❤️",
+    "💕",
+    "💖",
+    "💗",
+    "💓"
+    ];
+
+    let heart=
+    document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML=
+    hearts[
+        Math.floor(
+        Math.random()*hearts.length
+        )
+    ];
+
+    heart.style.left=
+    Math.random()*window.innerWidth+"px";
+
+    heart.style.fontSize=
+    (20+Math.random()*20)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,400);
+
+</script>
+
+</body>
+</html>
+
